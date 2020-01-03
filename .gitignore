@@ -4,6 +4,10 @@
 /node_modules
 /.pnp
 .pnp.js
+.eslintrc
+.huskyrc.json
+.lintstagedrc.json
+.idea
 
 # testing
 /coverage
