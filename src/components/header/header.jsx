@@ -2,20 +2,26 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-/* Import styles */
-import styles from './header.module.scss'
-
 const Header = () => {
   return (
-    <header className={styles.header}>
-      <div className={styles.logo}>
-        <Link to="/">App Store</Link>
+    <nav className="navbar is-light">
+      <div className="container">
+        <div className="navbar-brand">
+          <Link className="navbar-item is-size-4" to="/">
+            App Store
+          </Link>
+        </div>
+        <div className="navbar-menu">
+          <div className="navbar-end">
+            <div className="navbar-item">
+              <button type="button" className="button is-primary is-outlined">
+                Корзина
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
-      <div className={styles.cart}>
-        <span className={styles.cartIcon} />
-        <span className={styles.cartText}>6 Items ($200)</span>
-      </div>
-    </header>
+    </nav>
   )
 }
 

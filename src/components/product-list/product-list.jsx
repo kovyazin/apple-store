@@ -6,14 +6,27 @@ import PropTypes from 'prop-types'
 import ProductListItem from '../product-list-item'
 
 /* Import styles */
-import styles from './product-list.module.scss'
+// import styles from './product-list.module.scss'
 
 const ProductList = ({ products, onAddedToCart }) => {
   return (
-    <div className={styles.productList}>
+    <div className="columns is-multiline">
       {products.map(({ title, id, price, imageUrl }) => {
         return (
-          <div className={styles.productItem} key={id}>
+          <div className="column is-3" key={id}>
+            <ProductListItem
+              title={title}
+              id={id}
+              price={price}
+              imageUrl={imageUrl}
+              onAddedToCart={onAddedToCart}
+            />
+          </div>
+        )
+      })}
+      {products.map(({ title, id, price, imageUrl }) => {
+        return (
+          <div className="column is-3" key={id}>
             <ProductListItem
               title={title}
               id={id}

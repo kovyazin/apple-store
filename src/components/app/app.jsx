@@ -2,7 +2,6 @@
 import React from 'react'
 
 /* Import styles */
-import styles from './app.module.scss'
 import Header from '../header'
 import Search from '../search'
 import ProductListContainer from '../product-list'
@@ -10,18 +9,24 @@ import TableCart from '../table-cart'
 
 const App = () => {
   return (
-    <div className="container">
-      <div className={styles.header}>
-        <Header />
+    <>
+      <Header />
+      <div className="section">
+        <div className="container">
+          <Search />
+        </div>
       </div>
-      <div className={styles.search}>
-        <Search />
+      <div className="section">
+        <div className="container">
+          <ProductListContainer />
+        </div>
       </div>
-      <div className={styles.products}>
-        <ProductListContainer />
+      <div className="section">
+        <div className="container">
+          <TableCart />
+        </div>
       </div>
-      <TableCart />
-    </div>
+    </>
   )
 }
 
