@@ -8,18 +8,29 @@ import ProductListItem from '../product-list-item'
 /* Import styles */
 import styles from './product-list.module.scss'
 
-const ProductList = ({ products }) => {
+const ProductList = ({ products, onAddedToCart }) => {
   return (
     <div className={styles.productList}>
-      {products.map(({ title, id, price }) => {
-        return <ProductListItem title={title} id={id} price={price} key={id} />
+      {products.map(({ title, id, price, imageUrl }) => {
+        return (
+          <div className={styles.productItem} key={id}>
+            <ProductListItem
+              title={title}
+              id={id}
+              price={price}
+              imageUrl={imageUrl}
+              onAddedToCart={onAddedToCart}
+            />
+          </div>
+        )
       })}
     </div>
   )
 }
 
 ProductList.propTypes = {
-  products: PropTypes.arrayOf(PropTypes.object).isRequired
+  products: PropTypes.arrayOf(PropTypes.object).isRequired,
+  onAddedToCart: PropTypes.func.isRequired
 }
 
 export default ProductList

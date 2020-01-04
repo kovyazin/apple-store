@@ -10,13 +10,14 @@ import Spinner from '../spinner'
 import ErrorIndicator from '../error-indicator'
 
 /* Import others */
-import { fetchProducts } from '../../actions'
+import { addProductsToCart, fetchProducts } from '../../actions'
 
 const ProductListContainer = ({
   products,
   fetchProducts,
   isLoading,
-  hasError
+  hasError,
+  onAddedToCart
 }) => {
   useEffect(() => {
     fetchProducts()
@@ -24,14 +25,15 @@ const ProductListContainer = ({
 
   if (isLoading) return <Spinner />
   if (hasError) return <ErrorIndicator />
-  return <ProductList products={products} />
+  return <ProductList products={products} onAddedToCart={onAddedToCart} />
 }
 
 ProductListContainer.propTypes = {
   products: PropTypes.arrayOf(PropTypes.object).isRequired,
   fetchProducts: PropTypes.func.isRequired,
   isLoading: PropTypes.bool.isRequired,
-  hasError: PropTypes.bool.isRequired
+  hasError: PropTypes.bool.isRequired,
+  onAddedToCart: PropTypes.func.isRequired
 }
 
 const mapStateToProps = ({ products, isLoading, hasError }) => ({
@@ -41,7 +43,8 @@ const mapStateToProps = ({ products, isLoading, hasError }) => ({
 })
 
 const mapDispatchToProps = (dispatch, { appleStoreService }) => ({
-  fetchProducts: fetchProducts(appleStoreService, dispatch)
+  fetchProducts: fetchProducts(appleStoreService, dispatch),
+  onAddedToCart: id => dispatch(addProductsToCart(id))
 })
 
 export default withAppleStoreService()(
