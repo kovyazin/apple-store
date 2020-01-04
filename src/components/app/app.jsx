@@ -5,12 +5,14 @@ import React from 'react'
 import './app.module.scss'
 import Header from '../header'
 import Search from '../search'
+import ProductListContainer from '../product-list'
 
 const App = () => {
   return (
     <div className="container">
       <Header />
       <Search />
+      <ProductListContainer />
     </div>
   )
 }

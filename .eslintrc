@@ -14,6 +14,8 @@
     "semi": 0,
     "react/state-in-constructor": [2, "never"],
     "react/jsx-props-no-spreading": "off",
+    "import/prefer-default-export": "off",
+    "no-shadow": 0,
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "prettier/prettier": [
       "error", {

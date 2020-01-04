@@ -1,3 +1,3 @@
-import ProductList from './product-list'
+import ProductListContainer from './product-list-container'
 
-export default ProductList
+export default ProductListContainer
