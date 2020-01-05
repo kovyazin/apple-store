@@ -5,7 +5,12 @@ import React from 'react'
 // import styles from './error-indicator.module.scss'
 
 const ErrorIndicator = () => {
-  return <div>Error!</div>
+  return (
+    <div className="notification is-danger">
+      Извините, произошла ошибка, мы скоро это исправим. Попробуйте
+      перезагрузить страницу.
+    </div>
+  )
 }
 
 export default ErrorIndicator

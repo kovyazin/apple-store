@@ -3,9 +3,14 @@ import React from 'react'
 
 /* Import styles */
 // import styles from './spinner.module.scss'
+import { ReactComponent as SpinnerSVG } from './spinner.svg'
 
 const Spinner = () => {
-  return <div>Loading...</div>
+  return (
+    <div>
+      <SpinnerSVG />
+    </div>
+  )
 }
 
 export default Spinner

@@ -46,6 +46,7 @@ const updateOrder = (state, productId, quantity) => {
 
   return {
     ...state,
+    totalCount: state.totalCount + quantity * product.price,
     cartProducts: updateCartProducts(cartProducts, newItem, cartProductIndex)
   }
 }

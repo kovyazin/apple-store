@@ -11,13 +11,16 @@ const App = () => {
   return (
     <>
       <Header />
+      {/* <div className="section"> */}
+      {/*  <div className="container"> */}
+      {/*    <Search /> */}
+      {/*  </div> */}
+      {/* </div> */}
       <div className="section">
         <div className="container">
-          <Search />
-        </div>
-      </div>
-      <div className="section">
-        <div className="container">
+          <div className="content">
+            <Search />
+          </div>
           <ProductListContainer />
         </div>
       </div>

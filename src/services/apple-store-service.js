@@ -12,6 +12,12 @@ export default class AppleStoreService {
         'https://htstatic.imgsmail.ru/pic_image/a5ac7a5858bd50a0853f05fee3e5411a/450/450/1670179/',
       price: 1200,
       id: 2
+    },
+    {
+      title: 'Хуй',
+      imageUrl: 'https://img1.wbstatic.net/c246x328/new/3370000/3372489-1.jpg',
+      price: 1,
+      id: 3
     }
   ]
 

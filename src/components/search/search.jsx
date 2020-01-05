@@ -8,14 +8,6 @@ const Search = () => {
   return (
     <form>
       <div className="field is-grouped">
-        <div className="control">
-          <div className="select">
-            <select>
-              <option>По убыванию цены</option>
-              <option>По возрастанию цены</option>
-            </select>
-          </div>
-        </div>
         <div className="control is-expanded">
           <input
             className="input"
