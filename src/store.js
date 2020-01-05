@@ -1,7 +1,7 @@
 import { createStore } from 'redux'
-import reducer from './reducers'
+import rootReducer from './reducers/root-reducer'
 
-const store = createStore(reducer)
+const store = createStore(rootReducer)
 
 window.store = store
 

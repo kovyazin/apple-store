@@ -36,7 +36,9 @@ ProductListContainer.propTypes = {
   onAddedToCart: PropTypes.func.isRequired
 }
 
-const mapStateToProps = ({ products, isLoading, hasError }) => ({
+const mapStateToProps = ({
+  productList: { products, isLoading, hasError }
+}) => ({
   products,
   isLoading,
   hasError

@@ -18,7 +18,7 @@ const TableCart = ({
   onIncrease,
   onDecrease,
   onDelete,
-  totalCount
+  orderTotal
 }) => {
   return (
     <div>
@@ -85,7 +85,7 @@ const TableCart = ({
             </tbody>
           </table>
           <div className="has-text-right is-size-3 has-text-weight-light">
-            Общая сумма: ${totalCount}
+            Общая сумма: ${orderTotal}
           </div>
         </>
       )}
@@ -98,12 +98,12 @@ TableCart.propTypes = {
   onIncrease: PropTypes.func.isRequired,
   onDecrease: PropTypes.func.isRequired,
   onDelete: PropTypes.func.isRequired,
-  totalCount: PropTypes.number.isRequired
+  orderTotal: PropTypes.number.isRequired
 }
 
-const mapStateToProps = ({ cartProducts, totalCount }) => ({
+const mapStateToProps = ({ shopingCart: { cartProducts, orderTotal } }) => ({
   cartProducts,
-  totalCount
+  orderTotal
 })
 
 const mapDispatchToProps = {
