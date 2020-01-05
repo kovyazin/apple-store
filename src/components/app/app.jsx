@@ -1,16 +1,21 @@
 /* Import libraries */
 import React from 'react'
+import { Switch, Route, Redirect } from 'react-router-dom'
 
 /* Import styles */
 import Header from '../header'
-import { ProductsPage, ShoppingCartPage } from '../pages'
+import { ProductsPage, ShoppingCartPage, NotFoundPage } from '../pages'
 
 const App = () => {
   return (
     <>
       <Header />
-      <ProductsPage />
-      <ShoppingCartPage />
+      <Switch>
+        <Route path="/" exact component={ProductsPage} />
+        <Route path="/cart" component={ShoppingCartPage} />
+        <Route path="/404" component={NotFoundPage} />
+        <Redirect to="404" />
+      </Switch>
     </>
   )
 }
