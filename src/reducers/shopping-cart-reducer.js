@@ -33,7 +33,7 @@ const updateCartProduct = (cartProduct = {}, product, quantity) => {
 
 const updateOrder = (state, productId, quantity) => {
   const { products } = state.productList
-  const { cartProducts } = state.shopingCart
+  const { cartProducts } = state.shoppingCart
   const product = products.find(({ id }) => id === productId)
   const cartProductIndex = cartProducts.findIndex(({ id }) => id === productId)
   const cartProduct = cartProducts[cartProductIndex]
@@ -41,12 +41,12 @@ const updateOrder = (state, productId, quantity) => {
 
   return {
     ...state,
-    orderTotal: state.shopingCart.orderTotal + quantity * product.price,
+    orderTotal: state.shoppingCart.orderTotal + quantity * product.price,
     cartProducts: updateCartProducts(cartProducts, newItem, cartProductIndex)
   }
 }
 
-const shopingCartReducer = (state, { type, payload }) => {
+const shoppingCartReducer = (state, { type, payload }) => {
   if (state === undefined) return initialState
 
   switch (type) {
@@ -56,14 +56,14 @@ const shopingCartReducer = (state, { type, payload }) => {
     case REMOVE_PRODUCT_FROM_CART:
       return updateOrder(state, payload.id, -1)
     case REMOVE_ALL_PRODUCTS_FROM_CART: {
-      const item = state.shopingCart.cartProducts.find(
+      const item = state.shoppingCart.cartProducts.find(
         ({ id }) => id === payload.id
       )
       return updateOrder(state, payload.id, -item.count)
     }
     default:
-      return state.shopingCart
+      return state.shoppingCart
   }
 }
 
-export default shopingCartReducer
+export default shoppingCartReducer

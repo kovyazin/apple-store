@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
 /* Import styles */
-import './table-cart.scss'
+import './shopping-cart-table.scss'
 
 /* Import others */
 import {
@@ -13,7 +13,7 @@ import {
   removeProductFromCart
 } from '../../actions'
 
-const TableCart = ({
+const ShoppingCartTable = ({
   cartProducts,
   onIncrease,
   onDecrease,
@@ -93,7 +93,7 @@ const TableCart = ({
   )
 }
 
-TableCart.propTypes = {
+ShoppingCartTable.propTypes = {
   cartProducts: PropTypes.arrayOf(PropTypes.object).isRequired,
   onIncrease: PropTypes.func.isRequired,
   onDecrease: PropTypes.func.isRequired,
@@ -101,7 +101,7 @@ TableCart.propTypes = {
   orderTotal: PropTypes.number.isRequired
 }
 
-const mapStateToProps = ({ shopingCart: { cartProducts, orderTotal } }) => ({
+const mapStateToProps = ({ shoppingCart: { cartProducts, orderTotal } }) => ({
   cartProducts,
   orderTotal
 })
@@ -112,4 +112,4 @@ const mapDispatchToProps = {
   onDelete: removeAllProductsFromCart
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TableCart)
+export default connect(mapStateToProps, mapDispatchToProps)(ShoppingCartTable)
