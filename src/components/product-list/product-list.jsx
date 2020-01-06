@@ -8,7 +8,13 @@ import ProductsFilter from '../products-filter'
 
 import './product-list.scss'
 
-const ProductList = ({ products, onAddedToCart, searchValue }) => {
+const ProductList = ({
+  products,
+  onAddedToCart,
+  searchValue,
+  setFilterMethod,
+  filterMethod
+}) => {
   return (
     <>
       <div className="level">
@@ -23,7 +29,10 @@ const ProductList = ({ products, onAddedToCart, searchValue }) => {
           </h1>
         </div>
         <div className="level-right">
-          <ProductsFilter />
+          <ProductsFilter
+            setFilterMethod={setFilterMethod}
+            filterMethod={filterMethod}
+          />
         </div>
       </div>
       <div className="columns is-multiline">
@@ -53,7 +62,9 @@ const ProductList = ({ products, onAddedToCart, searchValue }) => {
 ProductList.propTypes = {
   products: PropTypes.arrayOf(PropTypes.object).isRequired,
   onAddedToCart: PropTypes.func.isRequired,
-  searchValue: PropTypes.string.isRequired
+  searchValue: PropTypes.string.isRequired,
+  setFilterMethod: PropTypes.func.isRequired,
+  filterMethod: PropTypes.string.isRequired
 }
 
 export default ProductList

@@ -5,6 +5,8 @@ import {
   FETCH_PRODUCTS_SUCCESS,
   REMOVE_ALL_PRODUCTS_FROM_CART,
   REMOVE_PRODUCT_FROM_CART,
+  SET_FILTER_METHOD,
+  SET_FILTERED_PRODUCTS,
   SET_SEARCH_VALUE
 } from '../types'
 
@@ -19,6 +21,11 @@ const fetchProductsSuccess = products => {
 const fetchProductsFailure = () => {
   return { type: FETCH_PRODUCTS_FAILURE }
 }
+
+export const setFilteredProducts = term => ({
+  type: SET_FILTERED_PRODUCTS,
+  payload: { term }
+})
 
 export const addProductsToCart = id => ({
   type: ADD_PRODUCTS_TO_CART,
@@ -41,6 +48,11 @@ export const setSearchValue = value => {
     payload: { value }
   }
 }
+
+export const setFilterMethod = method => ({
+  type: SET_FILTER_METHOD,
+  payload: { method }
+})
 
 export const fetchProducts = appleStoreService => () => dispatch => {
   dispatch(fetchProductsRequested())

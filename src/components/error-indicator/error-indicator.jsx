@@ -22,7 +22,11 @@ Notification.propTypes = {
 const ButtonReload = ({ onReload }) => {
   return (
     <div className="button-wrapper">
-      <button type="button" className="button-reload" onClick={onReload}>
+      <button
+        type="button"
+        className="button-reload has-text-primary"
+        onClick={onReload}
+      >
         <i className="fas fa-redo-alt" />
       </button>
     </div>

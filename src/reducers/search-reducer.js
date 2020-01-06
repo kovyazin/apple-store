@@ -1,7 +1,8 @@
-import { SET_SEARCH_VALUE } from '../types'
+import { SET_FILTER_METHOD, SET_SEARCH_VALUE } from '../types'
 
 const initialState = {
-  searchValue: ''
+  searchValue: '',
+  filterMethod: 'by increasing price'
 }
 
 const searchReducer = (state, { type, payload }) => {
@@ -14,6 +15,11 @@ const searchReducer = (state, { type, payload }) => {
       return {
         ...state.search,
         searchValue: payload.value
+      }
+    case SET_FILTER_METHOD:
+      return {
+        ...state.search,
+        filterMethod: payload.method
       }
     default:
       return state.search
