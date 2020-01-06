@@ -4,7 +4,8 @@ import {
   FETCH_PRODUCTS_REQUESTED,
   FETCH_PRODUCTS_SUCCESS,
   REMOVE_ALL_PRODUCTS_FROM_CART,
-  REMOVE_PRODUCT_FROM_CART
+  REMOVE_PRODUCT_FROM_CART,
+  SET_SEARCH_VALUE
 } from '../types'
 
 const fetchProductsRequested = () => {
@@ -34,7 +35,14 @@ export const removeAllProductsFromCart = id => ({
   payload: { id }
 })
 
-export const fetchProducts = (appleStoreService, dispatch) => () => {
+export const setSearchValue = value => {
+  return {
+    type: SET_SEARCH_VALUE,
+    payload: { value }
+  }
+}
+
+export const fetchProducts = appleStoreService => () => dispatch => {
   dispatch(fetchProductsRequested())
   appleStoreService
     .getData()

@@ -16,21 +16,21 @@ const productListReducer = (state, { type, payload }) => {
   switch (type) {
     case FETCH_PRODUCTS_REQUESTED:
       return {
-        ...state,
+        ...state.productList,
         products: [],
         isLoading: true,
         hasError: false
       }
     case FETCH_PRODUCTS_SUCCESS:
       return {
-        ...state,
+        ...state.productList,
         products: payload.products,
         isLoading: false,
         hasError: false
       }
     case FETCH_PRODUCTS_FAILURE:
       return {
-        ...state,
+        ...state.productList,
         products: [],
         isLoading: false,
         hasError: true

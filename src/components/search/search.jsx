@@ -1,28 +1,48 @@
 /* Import libraries */
 import React from 'react'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 
-/* Import styles */
-// import styles from './search.module.scss'
+import { setSearchValue } from '../../actions'
 
-const Search = () => {
+const Search = ({ setSearchValue, searchValue }) => {
+  const onChangeInput = e => {
+    setSearchValue(e.target.value)
+  }
+
+  const onResetInput = () => {
+    setSearchValue('')
+  }
+
   return (
-    <form>
-      <div className="field is-grouped">
-        <div className="control is-expanded">
-          <input
-            className="input"
-            type="text"
-            placeholder="Напишите что вы хотите найти"
-          />
-        </div>
-        <div className="control">
-          <button type="button" className="button is-primary">
-            Поиск
-          </button>
-        </div>
+    <div className="field is-grouped">
+      <div className="control is-expanded">
+        <input
+          className="input"
+          type="text"
+          value={searchValue}
+          onChange={onChangeInput}
+          placeholder="Напишите что вы хотите найти"
+        />
       </div>
-    </form>
+      <div className="control">
+        <button
+          type="button"
+          className="button is-danger"
+          onClick={onResetInput}
+        >
+          Сбросить
+        </button>
+      </div>
+    </div>
   )
 }
 
-export default Search
+Search.propTypes = {
+  setSearchValue: PropTypes.func.isRequired,
+  searchValue: PropTypes.string.isRequired
+}
+
+const mapStateToProps = ({ search: { searchValue } }) => ({ searchValue })
+
+export default connect(mapStateToProps, { setSearchValue })(Search)

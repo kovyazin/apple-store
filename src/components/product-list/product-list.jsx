@@ -6,12 +6,21 @@ import PropTypes from 'prop-types'
 import ProductListItem from '../product-list-item'
 import ProductsFilter from '../products-filter'
 
-const ProductList = ({ products, onAddedToCart }) => {
+import './product-list.scss'
+
+const ProductList = ({ products, onAddedToCart, searchValue }) => {
   return (
     <>
       <div className="level">
         <div className="level-left">
-          <h1 className="is-size-3 has-text-weight-light">Все товары</h1>
+          <h1 className="is-size-3 has-text-weight-light products-title">
+            {searchValue && (
+              <>
+                {`Результаты по запросу "${searchValue}": ${products.length}`}
+              </>
+            )}
+            {!searchValue && 'Все товары'}
+          </h1>
         </div>
         <div className="level-right">
           <ProductsFilter />
@@ -32,13 +41,19 @@ const ProductList = ({ products, onAddedToCart }) => {
           )
         })}
       </div>
+      {!!searchValue && !products.length && (
+        <div className="section has-text-centered">
+          <div className="is-size-2">Ничего не найдено</div>
+        </div>
+      )}
     </>
   )
 }
 
 ProductList.propTypes = {
   products: PropTypes.arrayOf(PropTypes.object).isRequired,
-  onAddedToCart: PropTypes.func.isRequired
+  onAddedToCart: PropTypes.func.isRequired,
+  searchValue: PropTypes.string.isRequired
 }
 
 export default ProductList

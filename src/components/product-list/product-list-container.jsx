@@ -1,7 +1,7 @@
 /* Import libraries */
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
 /* Import components */
 import ProductList from './product-list'
@@ -17,15 +17,31 @@ const ProductListContainer = ({
   fetchProducts,
   isLoading,
   hasError,
-  onAddedToCart
+  onAddedToCart,
+  searchValue
 }) => {
+  const [filteredProducts, setFilteredProducts] = useState([])
   useEffect(() => {
     fetchProducts()
   }, [fetchProducts])
 
+  useEffect(() => {
+    setFilteredProducts(
+      products.filter(({ title }) =>
+        title.toLowerCase().includes(searchValue.toLowerCase())
+      )
+    )
+  }, [products, searchValue])
+
   if (isLoading) return <Spinner />
-  if (hasError) return <ErrorIndicator />
-  return <ProductList products={products} onAddedToCart={onAddedToCart} />
+  if (hasError) return <ErrorIndicator onReload={fetchProducts} />
+  return (
+    <ProductList
+      products={filteredProducts}
+      onAddedToCart={onAddedToCart}
+      searchValue={searchValue}
+    />
+  )
 }
 
 ProductListContainer.propTypes = {
@@ -33,19 +49,22 @@ ProductListContainer.propTypes = {
   fetchProducts: PropTypes.func.isRequired,
   isLoading: PropTypes.bool.isRequired,
   hasError: PropTypes.bool.isRequired,
-  onAddedToCart: PropTypes.func.isRequired
+  onAddedToCart: PropTypes.func.isRequired,
+  searchValue: PropTypes.string.isRequired
 }
 
 const mapStateToProps = ({
-  productList: { products, isLoading, hasError }
+  productList: { products, isLoading, hasError },
+  search: { searchValue }
 }) => ({
   products,
   isLoading,
-  hasError
+  hasError,
+  searchValue
 })
 
 const mapDispatchToProps = (dispatch, { appleStoreService }) => ({
-  fetchProducts: fetchProducts(appleStoreService, dispatch),
+  fetchProducts: value => dispatch(fetchProducts(appleStoreService)(value)),
   onAddedToCart: id => dispatch(addProductsToCart(id))
 })
 
