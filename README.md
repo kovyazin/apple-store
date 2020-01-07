@@ -1,68 +1,58 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Интернет магазин Apple Store
 
-## Available Scripts
+Данный проект был разработан исключительно для практики
+разработки и не несёт в себе каких-либо коммерческих целей.
+За основу проекта я взял [React](https://github.com/facebook/react)
+и [Redux](https://github.com/reduxjs/redux), для перехода между
+страницами используется [React Router DOM](https://github.com/ReactTraining/react-router),
+для типизации свойств компонентов используется
+[PropTypes](https://github.com/facebook/prop-types), а для стилизации
+CSS фреймворк [Bulma](https://github.com/jgthms/bulma).
 
-In the project directory, you can run:
+## Особенности проекта
 
-### `npm start`
+- Проект разбит на две страницы: страницу товаров и корзину.
+- Товары можно добавлять нажатием на кнопку, если товар уже
+  добавлен, то будет увеличиваться количество данного товара.
+- Если товары в корзине отсутствуют, то на странице корзины
+  будет отображен соответствующий текст.
+- Если товар уже присутствует в корзине, то можно увеличивать
+  или уменьшать количество товара, а так же удалять его из корзину
+  нажатием на соответствующие клавиши.
+- Общая сумма товаров в корзине отображается как ниже таблицы
+  товаров, так и в шапке сайта на кнопке для перехода в корзину.
+- В приложении присутствует поиск по товарам в реальном
+  времени, а так же возможность их сортировки как по возрастанию цены, так
+  и по убыванию. Во время поиска так же меняется заголовок над товарами
+  в зависимости от запроса и количества найденных товаров.
+- При ошибке запроса к серверу, отображается соответствующее сообщение
+  об ошибке, которое можно скрыть и появится возможность повторить запрос
+  с помощью специально кнопки
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+> Обратите внимание, что приложение использует не настоящие запросы
+> к серверу, массив данных лежит в папке _services_, задержка
+> добавлена с помощью setTimeout, а так же специально иногда запрос
+> возвращает ошибку.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Инструкция по запуску проекта
 
-### `npm test`
+Для установки всех зависимостей следует ввести в терминале
+следующие команды:
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+_Для npm_
 
-### `npm run build`
+`npm install` или `npm i`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+_Для yarn_
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+`yarn` или `yarn install`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Для локального запуска проекта:
 
-### `npm run eject`
+_Для npm_
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+`npm start`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+_Для yarn_
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+`yarn start`
