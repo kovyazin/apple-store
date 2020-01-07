@@ -1,5 +1,8 @@
-@import '~bulma/bulma';
 @import url('https://fonts.googleapis.com/css?family=Baloo+Bhai|Roboto:300,400,500,700&display=swap');
+
+$navbar-breakpoint: 0px;
+
+@import '~bulma/bulma';
 
 :root {
   font-size: 16px;
