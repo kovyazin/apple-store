@@ -48,8 +48,12 @@ const ErrorIndicator = ({ onReload }) => {
   return <ButtonReload onReload={onReload} />
 }
 
+ErrorIndicator.defaultProps = {
+  onReload: () => window.location.reload()
+}
+
 ErrorIndicator.propTypes = {
-  onReload: PropTypes.func.isRequired
+  onReload: PropTypes.func
 }
 
 export default ErrorIndicator

@@ -2,7 +2,7 @@ import {
   ADD_PRODUCTS_TO_CART,
   REMOVE_ALL_PRODUCTS_FROM_CART,
   REMOVE_PRODUCT_FROM_CART
-} from '../types'
+} from '../types/shopping-cart'
 
 const initialState = {
   cartProducts: [],

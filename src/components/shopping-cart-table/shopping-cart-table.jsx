@@ -11,7 +11,7 @@ import {
   addProductsToCart,
   removeAllProductsFromCart,
   removeProductFromCart
-} from '../../actions'
+} from '../../actions/shopping-cart'
 
 const ShoppingCartTable = ({
   cartProducts,
@@ -36,10 +36,10 @@ const ShoppingCartTable = ({
             <thead>
               <tr>
                 <th>#</th>
-                <th>Title</th>
-                <th>Count</th>
-                <th>Price</th>
-                <th>Actions</th>
+                <th>Название товара</th>
+                <th>Количество</th>
+                <th>Цена</th>
+                <th>Действия</th>
               </tr>
             </thead>
             <tbody>

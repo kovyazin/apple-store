@@ -5,17 +5,13 @@ import React, { useEffect } from 'react'
 
 /* Import components */
 import ProductList from './product-list'
-import withAppleStoreService from '../hoc'
 import Spinner from '../spinner'
 import ErrorIndicator from '../error-indicator'
 
 /* Import others */
-import {
-  addProductsToCart,
-  fetchProducts,
-  setFilteredProducts,
-  setFilterMethod
-} from '../../actions'
+import { fetchProducts, setFilteredProducts } from '../../actions/product-list'
+import { addProductsToCart } from '../../actions/shopping-cart'
+import { setFilterMethod } from '../../actions/search'
 
 const ProductListContainer = ({
   products,
@@ -72,13 +68,9 @@ const mapStateToProps = ({
   filterMethod
 })
 
-const mapDispatchToProps = (dispatch, { appleStoreService }) => ({
-  fetchProducts: value => dispatch(fetchProducts(appleStoreService)(value)),
-  onAddedToCart: id => dispatch(addProductsToCart(id)),
-  setFilteredProducts: term => dispatch(setFilteredProducts(term)),
-  setFilterMethod: method => dispatch(setFilterMethod(method))
-})
-
-export default withAppleStoreService()(
-  connect(mapStateToProps, mapDispatchToProps)(ProductListContainer)
-)
+export default connect(mapStateToProps, {
+  fetchProducts,
+  onAddedToCart: addProductsToCart,
+  setFilteredProducts,
+  setFilterMethod
+})(ProductListContainer)

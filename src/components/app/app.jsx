@@ -2,7 +2,7 @@
 import React from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 
-/* Import styles */
+/* Import components */
 import Header from '../header'
 import { ProductsPage, ShoppingCartPage, NotFoundPage } from '../pages'
 

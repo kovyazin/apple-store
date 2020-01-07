@@ -17,19 +17,6 @@ const NotFoundPage = () => {
       </div>
     </div>
   )
-
-  // return (
-  //   <section className="hero is-fullheight-with-navbar">
-  //     <div className="hero-body has-text-centered">
-  //       <div className="container">
-  //         <p className="title is-size-1">404</p>
-  //         <p className="subtitle">
-  //           Страницы, расположенной по данному адресу не существует
-  //         </p>
-  //       </div>
-  //     </div>
-  //   </section>
-  // )
 }
 
 export default NotFoundPage

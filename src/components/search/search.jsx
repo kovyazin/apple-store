@@ -3,7 +3,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
-import { setSearchValue } from '../../actions'
+/* Import other */
+import { setSearchValue } from '../../actions/search'
 
 const Search = ({ setSearchValue, searchValue }) => {
   const onChangeInput = e => {

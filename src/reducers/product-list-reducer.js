@@ -3,7 +3,7 @@ import {
   FETCH_PRODUCTS_REQUESTED,
   FETCH_PRODUCTS_SUCCESS,
   SET_FILTERED_PRODUCTS
-} from '../types'
+} from '../types/product-list'
 
 const initialState = {
   products: [],

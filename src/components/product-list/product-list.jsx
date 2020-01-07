@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
 import ProductListItem from '../product-list-item'
 import ProductsFilter from '../products-filter'
 
+/* Import styles */
 import './product-list.scss'
 
 const ProductList = ({

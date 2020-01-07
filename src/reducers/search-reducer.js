@@ -1,4 +1,4 @@
-import { SET_FILTER_METHOD, SET_SEARCH_VALUE } from '../types'
+import { SET_FILTER_METHOD, SET_SEARCH_VALUE } from '../types/search'
 
 const initialState = {
   searchValue: '',
